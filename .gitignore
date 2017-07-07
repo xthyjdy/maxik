@@ -9,4 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+/config/database.php
 /nbproject
+/config/app.php
+/config/database.php

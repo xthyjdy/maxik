@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Categoty;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,46 @@ class ProductController extends Controller
     public function __construct() {
         $this->category = new Categoty;
         $this->subcategory = new Subcategory;
+        $this->product = new Product;
     }
+    
+    /*
+     * AddProduct method which create new product
+     * 
+     * @param Request $request
+     * return 
+     */
+    public function addProduct(Request $request)
+    {
+        $this->product->name = $request->name;
+        $this->product->category_id = $request->category;
+        $this->product->subcategory_id = $request->subcategory;
+        $this->product->description = $request->description;
+        $this->product->price = $request->price;
+        $this->product->status_id = 1;
+        $this->product->user_id = Auth::id();
+        
+        $this->product->save();
+        
+        return redirect('/product_form');
+    }
+    
+    /**
+    * ProductForm method which present product form
+    *
+    * @param  Request  $request
+    * @return Response
+    */
+    public function productForm(Request $request)
+    {
+        return view('products.product_form',
+            [
+                'category' => $this->category->get(),
+                'subcategory' => $this->subcategory->get()
+            ]
+        );
+    }
+    
     
     
     /**
@@ -37,43 +77,5 @@ class ProductController extends Controller
                 'subcategory' => $this->subcategory->get()
             ]
         );
-    }
-    
-    /**
-    * 
-    *
-    * @param  Request  $request
-    * @return Response
-    */
-    public function productForm(Request $request)
-    {
-        return view('products.product_form',
-            [
-                'category' => $this->category->get(),
-                'subcategory' => $this->subcategory->get()
-            ]
-        );
-    }
-    
-    /*
-     * AddProduct method which create new product
-     * 
-     * @param Request $request
-     * return 
-     */
-    public function addProduct(Request $request)
-    {
-        
-        $this->product->name = $request->name;
-        $this->product->category = $request->category;
-        $this->product->subcategory = $request->subcategory;
-        $this->product->description = $request->description;
-        $this->product->price = $request->price;
-        $this->product->status_id = $request->status_id;
-        //$this->product->user_id = Auth::user()->id;
-        
-        //$this->product->save();
-        
-        //return redirect('/home');
     }
 }
