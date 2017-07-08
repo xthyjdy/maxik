@@ -53,8 +53,8 @@ class ProductController extends Controller
     {
         return view('products.product_form',
             [
-                'category' => $this->category->get(),
-                'subcategory' => $this->subcategory->get()
+                'categories' => $this->category->get(),
+                'subcategories' => $this->subcategory->get()
             ]
         );
     }

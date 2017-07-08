@@ -1,8 +1,9 @@
 <!-- resources/views/products/index.blade.php -->
 @extends('layouts.app')
 @section('content')
-  
+      
     <div class="panel-body">
+        
         <!-- Отображение ошибок проверки ввода -->
         @include('common.errors')
 
@@ -11,14 +12,14 @@
             {{ csrf_field() }}            
             <!-- category -->
             <div class="form-group">
-                <label for="category" class="col-sm-3 control-label">Category</label>
+                <label for="category" class="col-sm-3 control-label">{{ trans('ru_product_form.category') }}</label>
 
                 <div class="col-sm-6">
                     <select name="category" id="category" class="form-control">
-                        <option value="0" checked>Choose Product Category</option>>
-                        @if (count($category) > 0)
-                            @foreach ($category as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        <option value="0" checked>{{ trans('ru_product_form.choose_product_category') }}</option>
+                        @if (count($categories) > 0)
+                            @foreach ($categories as $cat)
+                                <option value="{{ $cat->id }}">{{ trans('ru_product_form.categiries.'.$cat->name) }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -28,7 +29,7 @@
             <div id="subcategory_target"></div>
             <!-- name -->
             <div class="form-group">
-                <label for="product" class="col-sm-3 control-label">Name</label>
+                <label for="product" class="col-sm-3 control-label">{{ trans('ru_product_form.name') }}</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="name" id="product" class="form-control">
@@ -36,7 +37,7 @@
             </div>
             <!-- description -->
             <div class="form-group">
-                <label for="product" class="col-sm-3 control-label">Description</label>
+                <label for="product" class="col-sm-3 control-label">{{ trans('ru_product_form.description') }}</label>
 
                 <div class="col-sm-6">
                     <textarea name="description" id="description" class="form-control"></textarea>
@@ -44,7 +45,7 @@
             </div>
             <!-- price -->
             <div class="form-group">
-                <label for="product" class="col-sm-3 control-label">Price</label>
+                <label for="product" class="col-sm-3 control-label">{{ trans('ru_product_form.price') }}</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="price" id="price" class="form-control">
@@ -64,7 +65,7 @@
     </div>
 
     <!-- templates for pages -->
-    @include('clones.product_page')
+    @include('clones.product_page_clone')
 
     <!-- javascript -->
     <script type="text/javascript" src="{{ URL::asset('js/classes/Product.class.js') }}"></script>

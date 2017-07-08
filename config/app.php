@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'MAXIK'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,8 +77,8 @@ return [
     |
     */
 
-    'locale' => 'en',
-
+    'locale' => 'ru',
+    'locales' => ['ru', 'uk', 'en'],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

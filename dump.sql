@@ -35,7 +35,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'auto'),(2,'work'),(3,'fashion');
+INSERT INTO `categories` VALUES (1,'auto'),(2,'work'),(3,'dress');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,7 +312,7 @@ CREATE TABLE `subcategories` (
 
 LOCK TABLES `subcategories` WRITE;
 /*!40000 ALTER TABLE `subcategories` DISABLE KEYS */;
-INSERT INTO `subcategories` VALUES (1,1,'truck'),(2,1,'moto'),(3,1,'car'),(4,2,'programmers'),(5,2,'buildings'),(6,2,'traiders'),(7,3,'man'),(8,3,'woman'),(9,3,'children');
+INSERT INTO `subcategories` VALUES (1,1,'truck'),(2,1,'moto'),(3,1,'car'),(4,2,'it'),(5,2,'build'),(6,2,'traid'),(7,3,'man'),(8,3,'woman'),(9,3,'children');
 /*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-08  0:44:51
+-- Dump completed on 2017-07-08 14:17:56
